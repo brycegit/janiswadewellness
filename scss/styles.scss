@@ -1,0 +1,320 @@
+// sass --watch scss/styles.scss:style.css-
+// VARIABLES --------------------------------
+  // scale multiplier
+    $mult: 1.618; //1.618;
+    $hero-header-mult: $mult*1.1;
+    $header-mult: $mult;
+    $mobile-header-mult: $mult;
+  // font em values
+    $nav-em-value: .6em;
+    $h-em-value: .618em;
+  // view width multiplier for fonts only
+    $vw_multiplier: (.618vw/1.5);
+  // breakpoints
+    $mobile-breakpoint: 500px;
+    $tablet-breakpoint: 1000px;
+    $desktop-large-breakpoint: 1300px;
+    $site-max-width: 1500px;
+  //baseline imports
+    // @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css";
+    @import "../../../../../../Sites/template/nonProd/normalize";
+    @import "../../../../../../Sites/template/nonProd/mixins";
+  // colors
+    $color-1: #5bc6a6;
+    $color-2: #f2f2f2;
+    $color-3: #20abc9;
+    $font-color-1: #2f2f2f;
+    $font-color-2: #fff;
+    $bg-color-1: #fff;
+    $bg-color-2: #f2f2f2;
+    $button-bg-color-1: $color-3;
+    $button-txt-color-1: $font-color-2;
+  // margin & padding for boxes and rows
+    $l-margin: $xl * 1%;
+    $s-margin: $m * 1%;
+  // font settings
+    @import 'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400,700,900';
+    @import 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700';
+    body{
+      font-family: 'Lato', sans-serif, helvetica, arial, sans-serif;
+      color: $font-color-1;
+    }
+    h1{
+      font-weight: 900;
+    }
+    h2,h3,h4,h5{
+      font-weight: 700;
+    }
+    h1,h2,h3,h4,h5{
+      font-family: 'Lato', sans-serif, helvetica, arial, sans-serif;
+      line-height: 1.3em;
+      margin: 0 0 $l-margin 0;
+      text-align: center;
+    }
+    p, .hdPgBlock{
+      line-height: 1.6em;
+      margin: 0 auto $l-margin auto;
+      font-weight: 300;
+      max-width: 800px;
+      text-align: left;
+    }
+    a{
+      color: $font-color-1;
+      text-decoration: none;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      &:hover{
+        color: $color-1;
+      }
+    }
+    @media screen and (max-width: $mobile-breakpoint){
+      p, h1, h2, h3, h4, h5{
+        margin-bottom: $l-margin*3;
+      }
+    }
+    blockquote {
+      background: url("images/bg-quote1.png") no-repeat;
+      color: #a5a4a4;
+      font-style: italic;
+      margin: 0 auto;
+      margin-top: -30px !important;
+      padding: 30px 0px 30px 55px;
+      line-height: 1em;
+      margin-top:$l-margin;
+      max-width: 600px;
+      font-size: 1em;
+      font-weight: 300;
+      @media screen and (max-width: $mobile-breakpoint){
+        padding-top: 55px;
+        padding-left: 20px;
+        max-width: 400px;
+      }
+    }
+// PAGE LAYOUT -------------------------------
+  // rows
+    .row{
+      @include row;
+      max-width: $site-max-width;
+      padding: $l-margin;
+      @media screen and (max-width: $mobile-breakpoint){
+        padding: $l-margin*2;
+        nav+& {
+          padding: 0px;
+        }
+      }
+    }
+  // content boxes
+    .box-33{
+      @include box($s-margin/2, $s-margin/2, (1 / 3) * 100%, 3);
+    }
+    .box-66{
+      @include box($l-margin, $l-margin, (2 / 3) * 100%, 2);
+    }
+    .box-50{
+      @include box($l-margin, $l-margin, (1 / 2) * 100%, 2);
+    }
+    .box-25{
+      @include box($l-margin, $l-margin, (1 / 4) * 100%, 4);
+    }
+    .box-100{
+      @include box($l-margin, $l-margin, 100%, 1);
+      text-align: center;
+    }
+// COMPONENTS
+  // component imports
+    @import "../../../../../../Sites/template/nonProd/globalComponents";
+// STYLES ------------------------------------
+  //components
+    .hero{
+      h1{
+        float: left;
+        margin-left: ($l-margin);
+        margin-bottom: ($l-margin);
+        font-weight: 900;
+        text-transform: uppercase;
+        text-align: left;
+        line-height: 1em;
+      }
+      p{
+        float: right;
+        margin-right: ($l-margin*2);
+        margin-bottom: 0;
+        font-weight: 300;
+        max-width: 16.75em;
+        display: inline;
+      }
+      @media screen and (max-width: $mobile-breakpoint){
+        h1, p{
+          text-align: center;
+          display: block;
+          margin: 0px auto;
+          float: none;
+        }
+        p{
+          margin-top: $l-margin;
+        }
+        .hero_h1{
+          font-size: 2.8em;
+        }
+      }
+      @media screen and (min-width: $desktop-large-breakpoint){
+        p{
+          margin-right: ($l-margin*3);
+          max-width: 35%;
+        }
+        h1{
+          // font-size: 6em;
+          margin-left: ($l-margin*2);
+        }
+      }
+    }
+    #st, #wl{
+      height: $xl * 4em;
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+      overflow:hidden;
+      border-radius: 10px;
+      @media screen and (max-width: $mobile-breakpoint){
+        max-width: $xl * 7em;
+        display: block;
+        margin: 0px auto;
+      }
+    }
+    #st{
+      background-image: url("images/st.jpg");
+      @media screen and (max-width: $mobile-breakpoint){
+        margin-bottom: $l-margin*2;
+      }
+    }
+    #wl{
+      background-image: url("images/wl.jpg");
+    }
+    #st:active #overlay1, #wl:active #overlay2 {
+      opacity:1;
+    }
+    #st:hover #overlay1, #wl:hover #overlay2 {
+      opacity:1;
+    }
+    #overlay1, #overlay2 {
+      background:rgba(0,0,0,.75);
+      text-align:center;
+      height: $xl * 4em;
+      width: 100%;
+      opacity:0;
+      -webkit-transition: opacity .5s ease;
+      -moz-transition: opacity .5s ease;
+      -ms-transition: opacity .5s ease;
+      -o-transition: opacity .5s ease;
+      transition: opacity .5s ease;
+      border-radius: 10px;
+      padding: 85px 0 0 0;
+    }
+    .image-text_hover {
+      cursor: pointer;
+      color: #fff;
+      display: inline;
+      position: relative;
+      text-align: center;
+      font-weight: 400;
+      @media screen and (max-width: $mobile-breakpoint){
+        font-size: 1.8em;
+      }
+    }
+    .hdPgBlock{
+      border: 1px solid $color-2;
+      margin-bottom: $l-margin;
+    }
+    .hdPgBlock h3{
+      padding: $l-margin;
+      background-color: $color-2;
+      font-weight: 400;
+    }
+    .hdPgBlock p{
+      padding: 0 $l-margin;
+      text-align: left;
+    }
+    .about_image{
+      margin: $l-margin !important;
+      display: block;
+      float:left;
+      @media screen and (max-width: $mobile-breakpoint){
+        float: none;
+        margin: 0 auto !important;
+      }
+    }
+    .blog h2{
+      text-align: center !important;
+      display: inline;
+    }
+    .blog_posts{
+      margin: $s-margin 0 $l-margin*1.5 0;
+    }
+//themes
+  .t1{ // grey BG
+    text-align: center;
+    background: $bg-color-2;
+    p{
+      text-align: center;
+    }
+  }
+  .t2{ //inner page
+    h1, .header{
+      background: $bg-color-2;
+      padding: $l-margin;
+      margin-bottom: 0;
+      text-align: center;
+      p{
+        text-align: center;
+      }
+    }
+    text-align: center;
+    p{
+      text-align: left;
+    }
+    h2{
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    img{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      border-radius: 10px;
+      max-width: 300px;
+      height: auto;
+    }
+  }
+
+
+ //  l                         l
+ // iIi                       i^i
+ // |Il                       |i|
+ // |H i                     i"I|
+ // |H:l                     |iI|
+ // |Vb i      _______      i"II|
+ // |:M:l_.--~",..... ~"--._j HI|
+ // |`Mb.   ,jHHHMHMBb.     "-HI|
+ // | MMAa,jHHMMMMMMMMHb      :I|
+ // | VMMF "VMMMHYHMMMMMA.    `I|  "I'm Batman."
+ // | :MP   :MHI=:=IHMMMMMt    !|
+ // | `MI   .MY=: :=YMMMMP   ,a.|
+ // |  M!   jMHI=:=IHMMMMAwmAMMb|
+ // |  "Q;  MYFHHFFMMEFFEYF^:_;Dl
+ // |      jAK`'] ,>HMWWK`'].dP:H
+ // |     iMMMMMMMMMHMMMMMMMMF":H
+ // |    .:YMMMMMMMMl  "\. "~"_:T
+ // |  : : !VMMMMMMMk___,;--~X:"I
+ // |  H . :M"/ ~;"_"||~_"\. `Y H
+ // |  M.. :M:  i <.--v-.> I. : H
+ // |  Hk  `M.  :. "--w-"  H:  .H
+ // |  VMb. Vl  `ka..:H:. .F'  JH
+ // |  `VMMbYAi  "VbaHaHI::;.,jAH
+ // |   :HMMMMMk.  "^VIV'"~IkaAMH
+ // |   ;HMMMMMMMAa,.j:l.,aAMMMMH
+ // j  .dMMMMMMMMMMMHUbUHMMMMMMMHl

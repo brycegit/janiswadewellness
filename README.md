@@ -1,2 +1,2 @@
 # janiswadewellness
-Website for Janis Wade Wellness
+Wordpress theme for Janis Wade Wellness. Made with HTML, SCSS & JS.

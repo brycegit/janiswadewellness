@@ -9,7 +9,7 @@
 get_header(); ?>
 
 
-<div class="t2 blog">
+<div id="content" class="t2 blog">
 	<h1><?php wp_title(''); ?></h1>
 
 	<section class="row">

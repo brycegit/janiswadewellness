@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<div class="row">
+<div id="content" class="row">
 	<div class="box-100 hero">
 		<h1 class="hero_h1"><?php the_field("page_header", 21) ?></h1>
 		<p><?php the_field("page_subheader", 21) ?></p>
@@ -35,7 +35,7 @@ get_header(); ?>
 
 <div class="row t1">
 	<div class="box-100">
-		<img class="circleImage" src="<?php echo get_bloginfo('template_url') ?>/images/janisAboutv2.jpg"/>
+		<img alt="Photo of Janis" class="circleImage" src="<?php echo get_bloginfo('template_url') ?>/images/janisAboutv2.jpg"/>
 		<h2><span class="underline">Meet</span> Janis Wade</h2>
 		<p>Since 2001, I have had the privilege of helping clients achieve their health and fitness goals. I am a Personal Trainer certified by the American College of Sports Medicine with emphasis on strength and balance training, and a Wellness Coach certified by Wellcoaches with expertise in weight loss coaching.</p>
 		<a class="button"href="/about">Visit the about page</a>

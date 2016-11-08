@@ -14,7 +14,7 @@
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div id="content" class="entry-content">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

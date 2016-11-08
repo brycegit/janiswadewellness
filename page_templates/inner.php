@@ -9,7 +9,7 @@
 get_header(); ?>
 
 
-<div class="t2">
+<div id="content" class="t2">
 	<h1><?php the_title(); ?></h1>
 
 	<section class="row">
